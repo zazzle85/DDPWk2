@@ -1,0 +1,20 @@
+---
+title: "Most Frequently Visited Places For Me"
+author: "ME"
+date: "5/10/2020"
+output: html_document
+---
+
+```{r, echo=TRUE}
+library(leaflet)
+df<-data.frame(lat=c(37.553923,37.462193,37.527482),lng=c(127.003720,127.036307, 127.027301))
+sites<-c("<a href='http://www.seoulclub.org/?ckattempt=1'>Seoul Club</a>",
+         "<a href='https://www.costco.co.kr/'>Costco</a>",
+         "<a href='http://www.ehyundai.com/newPortal/DP/DP000000_V.do?branchCd=B00121000'>Hyundai Department Store</a>")
+my_map<-df %>%
+  leaflet() %>%
+  addTiles()%>%
+  addMarkers(popup=sites)
+my_map
+```
+
